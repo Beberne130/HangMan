@@ -1,67 +1,112 @@
-### README - Jeu 2048 Simplifié en C
+### **Projet : Jeu du Pendu (Hangman)**
+
+#### **Objectif**
+Le but du jeu est de deviner un mot en proposant des lettres. Si une lettre est correcte, elle apparaît à sa place dans le mot. Si elle est incorrecte, une partie du "pendu" est dessinée. Le joueur perd s'il fait trop d'erreurs, et gagne s'il devine tout le mot avant la fin.
 
 ---
 
-## **Présentation générale**
+### **Divisions des tâches**
 
-Ce projet est une version simplifiée et en mode texte du jeu de réflexion 2048, développée en langage C. Le but du jeu est de fusionner des tuiles numérotées sur une grille de 4x4 pour atteindre la valeur 2048. À chaque tour, le joueur peut déplacer les tuiles dans quatre directions (haut, bas, gauche, droite), et les tuiles de même valeur fusionnent lorsqu'elles se rencontrent.
+#### **Personne 1 (aucune base en C) : Gestion des entrées et affichage**
+Tâches :
+- Demander au joueur d’entrer une lettre.
+- Valider que l’entrée est bien une lettre et qu’elle n’a pas déjà été proposée.
+- Afficher l’état actuel du mot deviné (avec des tirets pour les lettres non trouvées).
+
+**Ce que cette personne apprendra** :
+- Utilisation de `scanf` pour capturer les entrées du joueur.
+- Manipulation des chaînes de caractères.
+- Conditions de validation (`if`, `else`).
+
+**Difficulté** :
+- Facile, car cette personne se concentrera principalement sur l’interaction utilisateur et les validations.
+
+#### **Personne 2 (aucune base en C) : Gestion des erreurs et affichage du pendu**
+Tâches :
+- Gérer les tentatives échouées du joueur et afficher les erreurs.
+- Mettre à jour et afficher l’état du pendu (de manière simple, comme des étapes d'un dessin ASCII).
+  
+**Ce que cette personne apprendra** :
+- Utilisation de boucles pour suivre les tentatives restantes.
+- Conditions pour gérer les erreurs et affichage de l’état du pendu en fonction du nombre d’échecs.
+  
+**Difficulté** :
+- Facile à intermédiaire, cette personne travaillera principalement avec des boucles et des conditions, ce qui est une bonne introduction aux structures de contrôle en C.
+
+#### **Personne 3 (ayant les bases en C) : Gestion du mot à deviner et logique du jeu**
+Tâches :
+- Sélectionner un mot aléatoire dans une liste prédéfinie.
+- Vérifier si la lettre entrée par le joueur est présente dans le mot à deviner.
+- Déterminer si le joueur a gagné ou perdu en fonction des tentatives restantes et des lettres trouvées.
+  
+**Ce que cette personne apprendra/améliorera** :
+- Manipulation de tableaux et de chaînes de caractères.
+- Gestion de la logique de victoire ou défaite.
+- (Optionnel) Implémenter une génération aléatoire du mot.
+
+**Difficulté** :
+- Intermédiaire, car cette personne manipule des tableaux et des structures plus avancées, tout en gérant la logique générale du jeu.
 
 ---
 
-## **Fonctionnalités**
+### **Fonctionnalités à implémenter**
 
-- **Grille de jeu** : Une grille de 4x4 cases qui affiche des tuiles numérotées ou vides.
-- **Déplacements** : Le joueur peut déplacer les tuiles dans quatre directions (`w` = haut, `a` = gauche, `s` = bas, `d` = droite).
-- **Fusion** : Les tuiles de même valeur fusionnent en une seule tuile avec une valeur double lorsqu'elles se rencontrent.
-- **Nouvelle tuile** : Après chaque déplacement valide, une nouvelle tuile de valeur 2 ou 4 apparaît dans une case vide.
-- **Condition de victoire** : Le jeu est gagné lorsque le joueur atteint une tuile de valeur 2048.
-- **Condition de défaite** : Le jeu se termine si la grille est pleine et qu'il n'est plus possible de fusionner de tuiles.
+1. **Entrée du joueur** :
+   - Le joueur propose une lettre.
+   - Le programme vérifie si la lettre est correcte ou non.
 
-## **Règles du jeu**
+2. **Affichage du mot** :
+   - Afficher le mot en cours avec des tirets pour les lettres non trouvées (ex: "_ _ a _ _").
+   - Mettre à jour l’affichage après chaque proposition.
 
-1. **Déplacement des tuiles** : Utilisez les touches suivantes pour déplacer les tuiles :
-   - `z` : Haut
-   - `q` : Gauche
-   - `s` : Bas
-   - `d` : Droite
+3. **Gestion des erreurs** :
+   - Si le joueur propose une lettre qui n’est pas dans le mot, il perd une tentative.
+   - Le pendu est mis à jour visuellement à chaque erreur (étapes ASCII du dessin).
 
-2. **Fusion** : Lorsque deux tuiles avec la même valeur se rencontrent après un déplacement, elles fusionnent pour former une tuile de valeur double.
-
-3. **Nouvelle tuile** : Après chaque déplacement, une nouvelle tuile de valeur 2 ou 4 est ajoutée à une case vide aléatoire.
-
-4. **Victoire** : Le joueur gagne s’il parvient à créer une tuile de valeur 2048.
-
-5. **Défaite** : Le jeu est perdu lorsque la grille est pleine et qu'il n'y a plus de mouvements valides.
+4. **Victoire/Défaite** :
+   - Victoire : Le joueur gagne s'il devine toutes les lettres du mot avant de manquer de tentatives.
+   - Défaite : Le joueur perd s'il fait trop d’erreurs (par exemple, 6 erreurs maximum).
 
 ---
 
-## **Exemple d'affichage**
+### **Étapes de collaboration**
+
+1. **Définir les variables globales** (fait par la personne 3) :
+   - Une liste de mots prédéfinis.
+   - Un tableau pour suivre les lettres trouvées et celles encore à deviner.
+
+2. **Entrée et validation de la lettre** (fait par la personne 1) :
+   - Demander au joueur une lettre.
+   - Vérifier que la lettre est correcte (n’a pas déjà été devinée).
+
+3. **Affichage de l’état du mot et du pendu** (fait par les personnes 1 et 2) :
+   - Personne 1 implémente l'affichage du mot avec les lettres devinées.
+   - Personne 2 implémente l'affichage du pendu en fonction des erreurs.
+
+4. **Logique de victoire et défaite** (fait par la personne 3) :
+   - Implémenter les conditions de victoire et de défaite en vérifiant si toutes les lettres ont été devinées ou si le joueur a épuisé ses tentatives.
+
+---
+
+### **Exemple d'affichage**
 
 ```
-2048 en C
-Score : 0
-Grille :
----------------------
- 2     0     0     2
- 0     4     0     0
- 0     0     8     0
- 16    0     0     0
----------------------
-Entrez votre mouvement (w:haut, a:gauche, s:bas, d:droite) :
+Mot à deviner : _ _ a _ _
+
+Tentatives restantes : 5
+
+Proposez une lettre : e
+
+Erreur ! Le pendu : O
+
+Mot à deviner : _ _ a _ _
+
+Tentatives restantes : 4
 ```
 
 ---
 
-## **Évolutions possibles**
-
-- **Sauvegarde de la partie** : Ajouter la possibilité de sauvegarder la partie en cours et de la reprendre plus tard.
-- **Interface graphique** : Implémenter une interface graphique simple à l’aide de bibliothèques comme SDL ou ncurses.
-- **Système de score** : Ajouter un affichage des scores basés sur la somme des tuiles fusionnées et un système de classement.
-
----
-
-## **Contributeurs**
-
-- Clément Bernard
-
----
+### **Extension possible** (pour aller plus loin)
+- **Choix aléatoire du mot** : Utiliser des fichiers ou des listes plus grandes pour choisir aléatoirement un mot à deviner.
+- **Système de scores** : Implémenter un système de score basé sur le nombre d’erreurs et de tentatives restantes.
+- **Sauvegarde de la partie** : Ajouter une fonctionnalité de sauvegarde pour reprendre une partie en cours.
