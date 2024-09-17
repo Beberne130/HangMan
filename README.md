@@ -109,9 +109,9 @@ Tête ("O") : représente la première erreur.
 
 Corps ("|") : ajouté après une autre erreur.
 
-Bras ("/|\") : ajoutés progressivement après trois autres erreurs.
+Bras (" / | \ ") : ajoutés progressivement après trois autres erreurs.
 
-Jambes ("/ \") : ajoutées à la fin, lorsque le joueur a épuisé toutes ses tentatives.
+Jambes (" / \ ") : ajoutées à la fin, lorsque le joueur a épuisé toutes ses tentatives.
 
 ---
 
