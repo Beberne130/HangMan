@@ -104,10 +104,15 @@ Mot à deviner : _ _ a _ _
 Tentatives restantes : 4
 ```
 Explication :
+
 Tête ("O") : représente la première erreur.
+
 Corps ("|") : ajouté après une autre erreur.
+
 Bras ("/|\") : ajoutés progressivement après trois autres erreurs.
+
 Jambes ("/ \") : ajoutées à la fin, lorsque le joueur a épuisé toutes ses tentatives.
+
 ---
 
 ### **Extension possible** (pour aller plus loin)
