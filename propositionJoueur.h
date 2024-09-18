@@ -1,5 +1,5 @@
-#ifndef PROPOSITION_JOUEUR.H
-#define PROPOSITION_JOUEUR.H
+#ifndef PROPOSITION_JOUEUR_H
+#define PROPOSITION_JOUEUR_H
 
 char propositionJoueur();
 
