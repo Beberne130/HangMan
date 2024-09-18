@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-void choixMots(){
+char* choixMots(){
     
     srand(time(NULL));
     int index=rand()%9;
     printf("index : %d\n", index);
     FILE* fichier = NULL;
     fichier = fopen("listeMots.txt", "r");
-    char motChoisi[TAILLE_MAX_MOT] = "";
+    static char motChoisi[TAILLE_MAX_MOT] = "";
 
     if (fichier != NULL)
     {
@@ -21,7 +21,8 @@ void choixMots(){
             {
  
                 printf("Le mots choisi est : %s\n", motChoisi);
-                break;
+                fclose(fichier);
+                return motChoisi;
                 
             }
             
@@ -32,6 +33,8 @@ void choixMots(){
     else{
         printf("Erreur dans l'ouverture de fichier demandé\n");
     }
+    fclose(fichier);
+    return NULL;
 
     
 }

@@ -2,6 +2,6 @@
 #define CHOIX_MOTS_H
 #define TAILLE_MAX_MOT 20
 
-void choixMots();
+char* choixMots();
 
 #endif
