@@ -6,4 +6,3 @@ int main(int argc, char **argv){
     choixMots();
     propositionJoueur();
     return 0;
-}
