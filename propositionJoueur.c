@@ -9,7 +9,7 @@ int propositionJoueur(){
     while(compteur < 26){
         dejaUtilise = 0;
         printf("Choisissez une lettre: ");
-        scanf("%c", &choixUtilisateur);
+        scanf(" %c", &choixUtilisateur);
 
         for(int i = 0; i < compteur; i++){
             if(tableauLettre[i] == choixUtilisateur){
