@@ -26,4 +26,4 @@ int propositionJoueur(){
             printf("La lettre %c a bien etait rangé\n", choixUtilisateur);
         }
         }
-    }
+}
